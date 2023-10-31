@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Genetic Algorithm";
+}
+
+<h2>Genetic Algorithm</h2>
+
+<p>This is the Genetic Algorithm result page. You can access the results of the algorithm here.</p>
+
+<h3>Genetic Algorithm Parameters</h3>
+<div>
+    <p>Number of new DNA individuals to introduce: @ViewData["numNewDNA"]</p>
+    <p>Crossover on new DNA: @ViewData["crossoverNewDNA"]</p>
+</div>
+
+<h3>Genetic Algorithm Results</h3>
+<div>
+    <p>Best Fitness: @ViewData["BestFitness"]</p>
+
+    <h4>Best Genes:</h4>
+    @{
+        var bestGenes = (List<List<string>>)@ViewData["BestGenes"];
+        int listIndex = 0;
+    }
+    @foreach (var geneList in bestGenes)
+    {
+        <h3>List @listIndex</h3>
+        <ul>
+            @foreach (var gene in geneList)
+            {
+                <li>@gene</li>
+            }
+        </ul>
+        listIndex++;
+    }
+
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="GeneticAlgorithm">Back to Genetic Algorithm Home</a>
+</div>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<SKC_MVC.Models.Grades>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Homeworks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinalExam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalGrades)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exam1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exam2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Homeworks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinalExam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalGrades)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exam1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exam2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
